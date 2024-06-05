@@ -2,7 +2,7 @@ name: schedule
 on:
   #triggers the workflow on schedule
   schedule:
-    - cron: '20 22 * * *'  #At 22:20.
+    - cron: '0 * * * *'  #every hour
 jobs:
   job_1: 
     runs-on: ubuntu-latest
