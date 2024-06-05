@@ -1,0 +1,17 @@
+name: schedule
+on:
+  #triggers the workflow on schedule
+  schedule:
+    - cron: '20 22 * * *'  #At 22:20.
+  jobs:
+    job_1: 
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Hello World!"
+        - run: echo "Job Triggered by a ${{ github.event_name }} event."
+    job_2: 
+      runs-on: ubuntu-latest
+      needs: job_1
+      steps:
+        - run: echo "Status ${{job.status}}"
+    
